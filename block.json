@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "copyright-paragraph/copyright",
+  "title": "Copyright Text",
+  "category": "text",
+  "description": "Paragraph with dynamic copyright info.",
+  "icon": "admin-site-alt3",
+  "keywords": ["copyright", "footer", "year"],
+  "parent": ["core/group", "core/column", "core/columns"],
+  "attributes": {
+    "metadata": {
+      "type": "object",
+      "default": {
+        "bindings": {
+          "content": {
+            "source": "copyright-paragraph/copyright",
+            "args": {
+              "startYear": "2000"
+            }
+          }
+        }
+      }
+    }
+  },
+  "textdomain": "wp-binding-dev-blockjson",
+  "editorScript": "file:./build/index.js"
+}
