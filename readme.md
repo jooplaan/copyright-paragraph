@@ -1,5 +1,5 @@
-=== Copyright paragraph ===
-Contributors: joop
+## Copyright paragraph
+
 Tags: copyright, footer, year, paragraph
 Requires at least: 6.5.0
 Tested up to: 6.7.2
@@ -10,7 +10,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Add copyright with current year and site title.
 
-== Description ==
+## Description
 
 Add a paragraph block with '© + current year + site title'
 
