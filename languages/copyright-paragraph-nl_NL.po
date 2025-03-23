@@ -7,8 +7,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-03-23T05:06:48+00:00\n"
-"PO-Revision-Date: 2025-03-23 06:11+0100\n"
+"POT-Creation-Date: 2025-03-23T06:34:02+00:00\n"
+"PO-Revision-Date: 2025-03-23 07:35+0100\n"
 "Language: nl\n"
 "X-Generator: Poedit 3.5\n"
 "X-Domain: copyright-paragraph\n"
@@ -28,13 +28,14 @@ msgstr "Voeg copyright toe met het huidige jaar en de sitetitel."
 msgid "Joop Laan"
 msgstr "Joop Laan"
 
-#: copyright-paragraph.php:30
+#: copyright-paragraph.php:18
 #: build/index.js:1
-#: src/index.js:10
+#: src/index.js:11
 msgid "Copyright Info"
 msgstr "Copyright informatie"
 
 #. translators: 1: years, 2: site title
-#: copyright-paragraph.php:44
+#: copyright-paragraph.php:41
+#: copyright-paragraph.php:94
 msgid "© %1$s %2$s"
 msgstr "© %1$s %2$s"
