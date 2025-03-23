@@ -20,16 +20,28 @@ add_action( 'init', function () {
 			$current_year = wp_date( 'Y' );
 			$start_year   = isset( $source_args['startYear'] ) ? (int) $source_args['startYear'] : null;
 
-			if ( ! $start_year && isset( $block->context['post']['date'] ) ) {
-				$start_year = (int) substr( $block->context['post']['date'], 0, 4 );
+			if (
+				! $start_year &&
+				is_object( $block_context ) &&
+				isset( $block_context->post['date'] )
+			) {
+				$start_year = (int) substr( $block_context->post['date'], 0, 4 );
 			}
 
-			$site_title   = get_bloginfo( 'name' );
+			$site_name = isset( $source_args['customName'] ) && $source_args['customName']
+				? $source_args['customName']
+				: get_bloginfo( 'name' );
+
 			$year_part = $start_year && $start_year < $current_year
 				? "$start_year – $current_year"
 				: $current_year;
 
-			return sprintf( /* translators: 1: years, 2: site title */ __( '© %1$s %2$s', 'copyright-paragraph' ), $year_part, $site_title );
+			return sprintf(
+				/* translators: 1: years, 2: site title */
+				__( '© %1$s %2$s', 'copyright-paragraph' ),
+				$year_part,
+				$site_name
+			);
 		},
 		'uses_context' => [ 'post' ],
 	) );
@@ -61,3 +73,27 @@ add_action( 'enqueue_block_editor_assets', function () {
 		plugin_dir_path( __FILE__ ) . 'languages'
 	);
 } );
+
+add_shortcode( 'copyright_paragraph', function( $atts ) {
+	$atts = shortcode_atts( array(
+		'start_year'  => null,
+		'custom_name' => null,
+	), $atts, 'copyright_paragraph' );
+
+	$current_year = wp_date( 'Y' );
+	$start_year   = (int) $atts['start_year'] ?: null;
+
+	$site_name = $atts['custom_name'] ?: get_bloginfo( 'name' );
+
+	$year_part = $start_year && $start_year < $current_year
+		? "$start_year – $current_year"
+		: $current_year;
+
+	return sprintf(
+		/* translators: 1: years, 2: site title */
+		__( '© %1$s %2$s', 'copyright-paragraph' ),
+		$year_part,
+		$site_name
+	);
+} );
+
