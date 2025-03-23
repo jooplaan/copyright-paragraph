@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Copyright paragraph
  * Description: Add copyright with current year and site title.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Text Domain: copyright-paragraph
  * Author: Joop Laan
  *
@@ -10,7 +10,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-define( 'COPYRIGHT_PARAGRAPH_VERSION', '1.0.0' );
+define( 'COPYRIGHT_PARAGRAPH_VERSION', '1.0.2' );
 
 add_action( 'init', function () {
 
