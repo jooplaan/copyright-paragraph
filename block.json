@@ -16,7 +16,8 @@
           "content": {
             "source": "copyright-paragraph/copyright",
             "args": {
-              "startYear": "2000"
+              "startYear": "2000",
+              "customName": ""
             }
           }
         }
