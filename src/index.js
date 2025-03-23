@@ -36,6 +36,10 @@ registerBlockBindingsSource({
     const site = getEntityRecord('root', 'site');
     const siteTitle = site?.title || __('Site title', 'copyright-paragraph');
 
+    const customSymbol = sourceArgs?.customSymbol?.trim();
+
+    console.log(sourceArgs);
+
     const currentYear = new Date().getFullYear();
     const startYear = parseInt(sourceArgs?.startYear, 10);
     const customName = sourceArgs?.customName?.trim();
@@ -46,9 +50,10 @@ registerBlockBindingsSource({
         : currentYear;
 
     const name = customName || siteTitle;
+    const symbol = customSymbol || '©';
 
     return {
-      content: `© ${year} ${name}`,
+      content: `${symbol} ${year} ${name}`,
     };
   },
 });

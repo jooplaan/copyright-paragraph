@@ -19,7 +19,7 @@ add_action( 'init', function () {
 		'get_value_callback' => function( $source_args, $block_context ) {
 			$current_year = wp_date( 'Y' );
 			$start_year   = isset( $source_args['startYear'] ) ? (int) $source_args['startYear'] : null;
-
+			$symbol       = isset( $source_args['customSymbol'] ) ? $source_args['customSymbol'] : '©';
 			if (
 				! $start_year &&
 				is_object( $block_context ) &&
@@ -38,7 +38,8 @@ add_action( 'init', function () {
 
 			// Output with a <p> and class with spans.
 			return sprintf(
-				'<p class="copyright-paragraph"><span class="copyright-paragraph-s">©</span> <span class="copyright-paragraph-y">%1$s</span> <span class="copyright-paragraph-n">%2$s</span></p>',
+				'<p class="copyright-paragraph"><span class="copyright-paragraph-s">%1$s</span> <span class="copyright-paragraph-y">%2$s</span> <span class="copyright-paragraph-n">%3$s</span></p>',
+				esc_html( $symbol ),
 				esc_html( $year_part ),
 				esc_html( $site_name )
 			);
@@ -77,9 +78,12 @@ add_action( 'enqueue_block_editor_assets', function () {
 
 add_shortcode( 'copyright_paragraph', function( $atts ) {
 	$atts = shortcode_atts( array(
+		'symbol'      => null,
 		'start_year'  => null,
 		'custom_name' => null,
 	), $atts, 'copyright_paragraph' );
+
+	$symbol = $atts['symbol'] ?: '©';
 
 	$current_year = wp_date( 'Y' );
 	$start_year   = (int) $atts['start_year'] ?: null;
@@ -92,7 +96,8 @@ add_shortcode( 'copyright_paragraph', function( $atts ) {
 
 	// Output with a <p> and class with spans.
 	return sprintf(
-		'<p class="copyright-paragraph"><span class="copyright-paragraph-s">©</span> <span class="copyright-paragraph-y">%1$s</span> <span class="copyright-paragraph-n">%2$s</span></p>',
+		'<p class="copyright-paragraph"><span class="copyright-paragraph-s">%1$s</span> <span class="copyright-paragraph-y">%2$s</span> <span class="copyright-paragraph-n">%3$s</span></p>',
+		esc_html( $symbol ),
 		esc_html( $year_part ),
 		esc_html( $site_name )
 	);
