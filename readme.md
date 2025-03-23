@@ -28,3 +28,23 @@ Add this code, and change the start year to your liking:
 <!-- /wp:paragraph -->
 ```
 
+## Updating Translations
+
+Whenever you make changes to translatable strings in the plugin:
+
+1. Regenerate the .pot file:
+
+```
+wp i18n make-pot . languages/copyright-paragraph.pot
+```
+
+2. Update the .po and .mo files for each language using a tool like Poedit or an online service.
+
+3. Generate the JavaScript translation files:
+
+```
+wp i18n make-json languages
+```
+
+This ensures that both PHP and JavaScript translations are available and up to date.
+
