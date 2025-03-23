@@ -1,12 +1,12 @@
 {
-  "name": "wp-binding-dev",
-  "version": "1.2.0",
+  "name": "copyright-paragraph",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^26.0.0"
+    "@wordpress/scripts": "^30.13.0"
   }
 }
