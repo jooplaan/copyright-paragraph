@@ -13,7 +13,7 @@ registerBlockVariation('core/paragraph', {
           source: 'copyright-paragraph/copyright',
           args: {
             startYear: new Date().getFullYear().toString(), // of bijv. '2000'
-            customName: 'Testbedrijf', // leeg laten; dan wordt site title gebruikt
+            customName: '', // leeg laten; dan wordt site title gebruikt
           },
         },
       },
