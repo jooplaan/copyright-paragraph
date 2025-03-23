@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Copyright paragraph
  * Description: Add copyright with current year and site title.
- * Version: 1.0.0
+ * Version: 1.0.2
  * Text Domain: copyright-paragraph
  * Author: Joop Laan
  *
@@ -10,7 +10,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
-define( 'COPYRIGHT_PARAGRAPH_VERSION', '1.0.0' );
+define( 'COPYRIGHT_PARAGRAPH_VERSION', '1.0.2' );
 
 add_action( 'init', function () {
 
@@ -36,12 +36,13 @@ add_action( 'init', function () {
 				? "$start_year – $current_year"
 				: $current_year;
 
+			// Output with a <p> and class with spans.
 			return sprintf(
-				/* translators: 1: years, 2: site title */
-				__( '© %1$s %2$s', 'copyright-paragraph' ),
-				$year_part,
-				$site_name
+				'<p class="copyright-paragraph"><span class="copyright-paragraph-s">©</span> <span class="copyright-paragraph-y">%1$s</span> <span class="copyright-paragraph-n">%2$s</span></p>',
+				esc_html( $year_part ),
+				esc_html( $site_name )
 			);
+
 		},
 		'uses_context' => [ 'post' ],
 	) );
@@ -89,11 +90,12 @@ add_shortcode( 'copyright_paragraph', function( $atts ) {
 		? "$start_year – $current_year"
 		: $current_year;
 
+	// Output with a <p> and class with spans.
 	return sprintf(
-		/* translators: 1: years, 2: site title */
-		__( '© %1$s %2$s', 'copyright-paragraph' ),
-		$year_part,
-		$site_name
+		'<p class="copyright-paragraph"><span class="copyright-paragraph-s">©</span> <span class="copyright-paragraph-y">%1$s</span> <span class="copyright-paragraph-n">%2$s</span></p>',
+		esc_html( $year_part ),
+		esc_html( $site_name )
 	);
 } );
+
 
