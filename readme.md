@@ -36,57 +36,28 @@ Look for the block titled **“Copyright Text”**.
 
 This will insert a regular paragraph block that dynamically shows the copyright text, using the current year and your site title.
 
-### Add a start year and custom text (via block code)
+You can change the options for this block in the sidebar:
 
-To display a year range, for example `© 2001 – 2025`, you can edit the block in **code editor** mode and add the `startYear` binding argument like this:
-
-```html
-<!-- wp:paragraph {
-  "metadata": {
-    "bindings": {
-      "content": {
-        "source": "copyright-paragraph/copyright",
-        "args": {
-          "startYear": "2001",
-          "customName": "My custom name"
-        }
-      }
-    }
-  }
-} -->
-<p></p>
-<!-- /wp:paragraph -->
-```
+* add a different symbol for the copyright
+* add an optional start_year attribute to display a year range (if different from the current year)
+* add a custom text to replace the site title.
 
 ## Shortcode
 
 The `copyright_paragraph` plugin provides a simple shortcode to display a copyright notice with the current year and your site title. Optionally, you can provide a start year to show a range.
 
-### Basic Usage
+### Usage
 
-```plaintext
-[copyright_paragraph]
-```
+You can
 
-### With Start Year
+* add a different symbol for the copyright
+* add an optional start_year attribute to display a year range (if different from the current year)
+* add a custom text to replace the site title.
 
-You can add an optional start_year attribute to display a year range (if different from the current year):
-```
-[copyright_paragraph start_year="2019"]
-```
-
-### Custom text
-
-You can use your own text to replace the default site title.
+All options:
 
 ```
-[copyright_paragraph custom_name="My custom name"]
-```
-
-Of course, you can combine both options:
-
-```
-[copyright_paragraph start_year="2019" custom_name="My custom name"]
+[copyright_paragraph custom_symbol="(c)" start_year="2019" custom_name="My custom name"]
 ```
 
 ## Updating Translations

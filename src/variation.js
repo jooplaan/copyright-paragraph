@@ -12,6 +12,7 @@ registerBlockVariation('core/paragraph', {
         content: {
           source: 'copyright-paragraph/copyright',
           args: {
+            customSymbol: '',
             startYear: new Date().getFullYear().toString(), // of bijv. '2000'
             customName: '', // leeg laten; dan wordt site title gebruikt
           },

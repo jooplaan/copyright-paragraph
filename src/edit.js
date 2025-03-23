@@ -37,7 +37,10 @@ const withCopyrightEditPreview = createHigherOrderComponent((BlockEdit) => {
 		}, []);
 
 		const nameToUse = customName || siteTitle;
-		const content = `© ${year} ${nameToUse}`;
+
+		const symbol = args.customSymbol || '©';
+
+		const content = `${symbol} ${year} ${nameToUse}`;
 
 		return (
 			<div {...props}>
@@ -72,6 +75,7 @@ const withCopyrightInspectorControls = createHigherOrderComponent((BlockEdit) =>
 		const args = binding.args || {};
 		const startYear = args.startYear || '';
 		const customName = args.customName || '';
+		const customSymbol = args.customSymbol || '';
 
 		const { updateBlockAttributes } = useDispatch('core/block-editor');
 
@@ -98,6 +102,12 @@ const withCopyrightInspectorControls = createHigherOrderComponent((BlockEdit) =>
 				<BlockEdit {...props} />
 				<InspectorControls>
 					<PanelBody title={__('Copyright Settings', 'copyright-paragraph')} initialOpen={true}>
+						<TextControl
+							label={__('Custom Symbol', 'copyright-paragraph')}
+							value={customSymbol}
+							onChange={(value) => updateArgs('customSymbol', value)}
+							placeholder={__('Leave empty to use ©', 'copyright-paragraph')}
+						/>
 						<TextControl
 							label={__('Custom Name', 'copyright-paragraph')}
 							value={customName}
